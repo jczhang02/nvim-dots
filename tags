@@ -1,0 +1,115 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/jczhang/.config/nvim/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
+Packer:init_ensure_plugins	lua/core/pack.lua	/^function Packer:init_ensure_plugins()$/;"	f
+Packer:load_packer	lua/core/pack.lua	/^function Packer:load_packer()$/;"	f
+Packer:load_plugins	lua/core/pack.lua	/^function Packer:load_plugins()$/;"	f
+["<S-Tab>"]	lua/modules/completion/config.lua	/^			["<S-Tab>"] = cmp.mapping(function(fallback)$/;"	f
+["[["]	lua/modules/editor/config.lua	/^                    ["[["] = "@function.outer",$/;"	f
+["[]"]	lua/modules/editor/config.lua	/^                    ["[]"] = "@function.outer",$/;"	f
+["]["]	lua/modules/editor/config.lua	/^                    ["]["] = "@function.outer",$/;"	f
+["]]"]	lua/modules/editor/config.lua	/^                    ["]]"] = "@function.outer",$/;"	f
+["af"]	lua/modules/editor/config.lua	/^                    ["af"] = "@function.outer",$/;"	f
+["if"]	lua/modules/editor/config.lua	/^                    ["if"] = "@function.inner",$/;"	f
+["method-name"]	lua/modules/editor/config.lua	/^                ["method-name"] = " " -- Methods (functions inside class-like objects)$/;"	f
+_G.enhance_align	lua/keymap/config.lua	/^_G.enhance_align = function(key)$/;"	f
+_G.enhance_ft_move	lua/keymap/config.lua	/^_G.enhance_ft_move = function(key)$/;"	f
+_G.enhance_jk_move	lua/keymap/config.lua	/^_G.enhance_jk_move = function(key)$/;"	f
+__index	lua/core/pack.lua	/^        __index = function(_, key)$/;"	f
+autocmd.load_autocmds	lua/core/event.lua	/^function autocmd.load_autocmds()$/;"	f
+autocmd.nvim_create_augroups	lua/core/event.lua	/^function autocmd.nvim_create_augroups(definitions)$/;"	f
+bind_option	lua/core/options.lua	/^local function bind_option(options)$/;"	f
+clipboard_settings	lua/core/init.lua	/^local clipboard_settings = function()$/;"	f
+config	lua/modules/editor/plugins.lua	/^    config = function()$/;"	f
+config	lua/modules/tools/plugins.lua	/^    config = function()$/;"	f
+config.auto_session	lua/modules/editor/config.lua	/^function config.auto_session()$/;"	f
+config.autopairs	lua/modules/completion/config.lua	/^function config.autopairs()$/;"	f
+config.autotag	lua/modules/editor/config.lua	/^function config.autotag()$/;"	f
+config.catppuccin	lua/modules/ui/config.lua	/^function config.catppuccin()$/;"	f
+config.cmp	lua/modules/completion/config.lua	/^function config.cmp()$/;"	f
+config.dap	lua/modules/editor/config.lua	/^function config.dap()$/;"	f
+config.dapinstal	lua/modules/editor/config.lua	/^function config.dapinstal()$/;"	f
+config.dapui	lua/modules/editor/config.lua	/^function config.dapui()$/;"	f
+config.edge	lua/modules/ui/config.lua	/^function config.edge()$/;"	f
+config.format	lua/modules/editor/config.lua	/^function config.format()$/;"	f
+config.gentags	lua/modules/editor/config.lua	/^function config.gentags()$/;"	f
+config.gitsigns	lua/modules/ui/config.lua	/^function config.gitsigns()$/;"	f
+config.indent_blankline	lua/modules/ui/config.lua	/^function config.indent_blankline()$/;"	f
+config.lang_org	lua/modules/lang/config.lua	/^function config.lang_org()$/;"	f
+config.lightbulb	lua/modules/completion/config.lua	/^function config.lightbulb()$/;"	f
+config.lualine	lua/modules/ui/config.lua	/^function config.lualine()$/;"	f
+config.matchup	lua/modules/editor/config.lua	/^function config.matchup()$/;"	f
+config.neoscroll	lua/modules/editor/config.lua	/^function config.neoscroll()$/;"	f
+config.nvim_bufferline	lua/modules/ui/config.lua	/^function config.nvim_bufferline()$/;"	f
+config.nvim_colorizer	lua/modules/editor/config.lua	/^function config.nvim_colorizer()$/;"	f
+config.nvim_gps	lua/modules/editor/config.lua	/^function config.nvim_gps()$/;"	f
+config.nvim_lsp	lua/modules/completion/config.lua	/^function config.nvim_lsp()$/;"	f
+config.nvim_tree	lua/modules/ui/config.lua	/^function config.nvim_tree()$/;"	f
+config.nvim_treesitter	lua/modules/editor/config.lua	/^function config.nvim_treesitter()$/;"	f
+config.rust_tools	lua/modules/lang/config.lua	/^function config.rust_tools()$/;"	f
+config.sniprun	lua/modules/tools/config.lua	/^function config.sniprun()$/;"	f
+config.specs	lua/modules/editor/config.lua	/^function config.specs()$/;"	f
+config.symbols_outline	lua/modules/editor/config.lua	/^function config.symbols_outline()$/;"	f
+config.tabnine	lua/modules/completion/config.lua	/^function config.tabnine()$/;"	f
+config.telescope	lua/modules/tools/config.lua	/^function config.telescope()$/;"	f
+config.toggleterm	lua/modules/editor/config.lua	/^function config.toggleterm()$/;"	f
+config.trouble	lua/modules/tools/config.lua	/^function config.trouble()$/;"	f
+config.ultisnips	lua/modules/completion/config.lua	/^function config.ultisnips()$/;"	f
+config.vim_cursorwod	lua/modules/editor/config.lua	/^function config.vim_cursorwod()$/;"	f
+config.vimtex	lua/modules/lang/config.lua	/^function config.vimtex()$/;"	f
+config.wilder	lua/modules/tools/config.lua	/^function config.wilder()$/;"	f
+createdir	lua/core/init.lua	/^local createdir = function()$/;"	f
+custom_attach	lua/modules/completion/lspconfig.lua	/^local function custom_attach()$/;"	f
+dap.adapters.go	lua/modules/editor/config.lua	/^    dap.adapters.go = function(callback, config)$/;"	f
+dap.listeners.after.event_initialized["dapui_config"]	lua/modules/editor/config.lua	/^    dap.listeners.after.event_initialized["dapui_config"] = function()$/;"	f
+dap.listeners.before.event_exited["dapui_config"]	lua/modules/editor/config.lua	/^    dap.listeners.before.event_exited["dapui_config"] = function()$/;"	f
+dap.listeners.before.event_terminated["dapui_config"]	lua/modules/editor/config.lua	/^    dap.listeners.before.event_terminated["dapui_config"] = function()$/;"	f
+dashboard_config	lua/core/init.lua	/^local dashboard_config = function()$/;"	f
+disable_distribution_plugins	lua/core/init.lua	/^local disable_distribution_plugins = function()$/;"	f
+expand	lua/modules/completion/config.lua	/^            expand = function(args)$/;"	f
+format	lua/modules/completion/config.lua	/^            format = function(entry, vim_item)$/;"	f
+get_plugins_list	lua/core/pack.lua	/^    local get_plugins_list = function()$/;"	f
+global:load_variables	lua/core/global.lua	/^function global:load_variables()$/;"	f
+gps_content	lua/modules/ui/config.lua	/^    local function gps_content()$/;"	f
+has_any_words_before	lua/modules/completion/config.lua	/^    local has_any_words_before = function()$/;"	f
+hook	lua/modules/editor/plugins.lua	/^                hook = function()$/;"	f
+i	lua/modules/completion/config.lua	/^				i = function(fallback)$/;"	f
+leader_map	lua/core/init.lua	/^local leader_map = function()$/;"	f
+load_core	lua/core/init.lua	/^local load_core = function()$/;"	f
+load_options	lua/core/options.lua	/^local function load_options()$/;"	f
+neovide_config	lua/core/init.lua	/^local neovide_config = function()$/;"	f
+open_fn	lua/core/pack.lua	/^                open_fn = function()$/;"	f
+pbind.map_args	lua/keymap/bind.lua	/^function pbind.map_args(cmd_string)$/;"	f
+pbind.map_cmd	lua/keymap/bind.lua	/^function pbind.map_cmd(cmd_string)$/;"	f
+pbind.map_cr	lua/keymap/bind.lua	/^function pbind.map_cr(cmd_string)$/;"	f
+pbind.map_cu	lua/keymap/bind.lua	/^function pbind.map_cu(cmd_string)$/;"	f
+pbind.nvim_load_mapping	lua/keymap/bind.lua	/^function pbind.nvim_load_mapping(mapping)$/;"	f
+plugins.auto_compile	lua/core/pack.lua	/^function plugins.auto_compile()$/;"	f
+plugins.convert_compile_file	lua/core/pack.lua	/^function plugins.convert_compile_file()$/;"	f
+plugins.ensure_plugins	lua/core/pack.lua	/^function plugins.ensure_plugins()$/;"	f
+plugins.load_compile	lua/core/pack.lua	/^function plugins.load_compile()$/;"	f
+plugins.magic_compile	lua/core/pack.lua	/^function plugins.magic_compile()$/;"	f
+press	lua/modules/completion/config.lua	/^    local press = function(key)$/;"	f
+pythonPath	lua/modules/editor/config.lua	/^            pythonPath = function()$/;"	f
+rhs_options:map_args	lua/keymap/bind.lua	/^function rhs_options:map_args(cmd_string)$/;"	f
+rhs_options:map_cmd	lua/keymap/bind.lua	/^function rhs_options:map_cmd(cmd_string)$/;"	f
+rhs_options:map_cr	lua/keymap/bind.lua	/^function rhs_options:map_cr(cmd_string)$/;"	f
+rhs_options:map_cu	lua/keymap/bind.lua	/^function rhs_options:map_cu(cmd_string)$/;"	f
+rhs_options:new	lua/keymap/bind.lua	/^function rhs_options:new()$/;"	f
+rhs_options:with_expr	lua/keymap/bind.lua	/^function rhs_options:with_expr()$/;"	f
+rhs_options:with_noremap	lua/keymap/bind.lua	/^function rhs_options:with_noremap()$/;"	f
+rhs_options:with_nowait	lua/keymap/bind.lua	/^function rhs_options:with_nowait()$/;"	f
+rhs_options:with_silent	lua/keymap/bind.lua	/^function rhs_options:with_silent()$/;"	f
+run	lua/modules/tools/plugins.lua	/^    run = function()$/;"	f
+s	lua/modules/completion/config.lua	/^				s = function(fallback)$/;"	f
+size	lua/modules/editor/config.lua	/^        size = function(term)$/;"	f
+switch_source_header_splitcmd	lua/modules/completion/lspconfig.lua	/^local function switch_source_header_splitcmd(bufnr, splitcmd)$/;"	f
+t	lua/keymap/config.lua	/^local t = function(str)$/;"	f
