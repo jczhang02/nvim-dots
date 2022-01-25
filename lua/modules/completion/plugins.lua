@@ -10,6 +10,11 @@ completion["williamboman/nvim-lsp-installer"] = {
     opt = true,
     after = "nvim-lspconfig"
 }
+completion["RishabhRD/nvim-lsputils"] = {
+    opt = true,
+    after = "nvim-lspconfig",
+    config = conf.nvim_lsputils
+}
 completion["tami5/lspsaga.nvim"] = {opt = true, after = "nvim-lspconfig"}
 completion["kosayoda/nvim-lightbulb"] = {
     opt = true,
@@ -31,11 +36,11 @@ completion["hrsh7th/nvim-cmp"] = {
         {"f3fora/cmp-spell", after = "cmp-path"},
         --{"hrsh7th/cmp-copilot", after = "cmp-spell"}
         {
-            'tzachar/cmp-tabnine',
-            run = './install.sh',
-            after = 'cmp-spell',
+            "tzachar/cmp-tabnine",
+            run = "./install.sh",
+            after = "cmp-spell",
             config = conf.tabnine
-        },
+        }
         -- {
         --     "uga-rosa/cmp-dictionary",
         --     after = "cmp-tabnine",
@@ -49,9 +54,9 @@ completion["SirVer/ultisnips"] = {
     requires = "honza/vim-snippets"
 }
 
-completion['flaviusbuffon/jc-snippet'] = {
+completion["flaviusbuffon/jc-snippet"] = {
     opt = true,
-    after = 'ultisnips',
+    after = "ultisnips"
 }
 completion["windwp/nvim-autopairs"] = {
     after = "nvim-cmp",

@@ -12,7 +12,6 @@
 Packer:init_ensure_plugins	lua/core/pack.lua	/^function Packer:init_ensure_plugins()$/;"	f
 Packer:load_packer	lua/core/pack.lua	/^function Packer:load_packer()$/;"	f
 Packer:load_plugins	lua/core/pack.lua	/^function Packer:load_plugins()$/;"	f
-["<S-Tab>"]	lua/modules/completion/config.lua	/^			["<S-Tab>"] = cmp.mapping(function(fallback)$/;"	f
 ["[["]	lua/modules/editor/config.lua	/^                    ["[["] = "@function.outer",$/;"	f
 ["[]"]	lua/modules/editor/config.lua	/^                    ["[]"] = "@function.outer",$/;"	f
 ["]["]	lua/modules/editor/config.lua	/^                    ["]["] = "@function.outer",$/;"	f
@@ -52,6 +51,7 @@ config.nvim_bufferline	lua/modules/ui/config.lua	/^function config.nvim_bufferli
 config.nvim_colorizer	lua/modules/editor/config.lua	/^function config.nvim_colorizer()$/;"	f
 config.nvim_gps	lua/modules/editor/config.lua	/^function config.nvim_gps()$/;"	f
 config.nvim_lsp	lua/modules/completion/config.lua	/^function config.nvim_lsp()$/;"	f
+config.nvim_lsputils	lua/modules/completion/config.lua	/^function config.nvim_lsputils()$/;"	f
 config.nvim_tree	lua/modules/ui/config.lua	/^function config.nvim_tree()$/;"	f
 config.nvim_treesitter	lua/modules/editor/config.lua	/^function config.nvim_treesitter()$/;"	f
 config.rust_tools	lua/modules/lang/config.lua	/^function config.rust_tools()$/;"	f
@@ -81,7 +81,7 @@ global:load_variables	lua/core/global.lua	/^function global:load_variables()$/;"
 gps_content	lua/modules/ui/config.lua	/^    local function gps_content()$/;"	f
 has_any_words_before	lua/modules/completion/config.lua	/^    local has_any_words_before = function()$/;"	f
 hook	lua/modules/editor/plugins.lua	/^                hook = function()$/;"	f
-i	lua/modules/completion/config.lua	/^				i = function(fallback)$/;"	f
+i	lua/modules/completion/config.lua	/^                    i = function(fallback)$/;"	f
 leader_map	lua/core/init.lua	/^local leader_map = function()$/;"	f
 load_core	lua/core/init.lua	/^local load_core = function()$/;"	f
 load_options	lua/core/options.lua	/^local function load_options()$/;"	f
@@ -109,7 +109,15 @@ rhs_options:with_noremap	lua/keymap/bind.lua	/^function rhs_options:with_noremap
 rhs_options:with_nowait	lua/keymap/bind.lua	/^function rhs_options:with_nowait()$/;"	f
 rhs_options:with_silent	lua/keymap/bind.lua	/^function rhs_options:with_silent()$/;"	f
 run	lua/modules/tools/plugins.lua	/^    run = function()$/;"	f
-s	lua/modules/completion/config.lua	/^				s = function(fallback)$/;"	f
+s	lua/modules/completion/config.lua	/^                    s = function(fallback)$/;"	f
 size	lua/modules/editor/config.lua	/^        size = function(term)$/;"	f
 switch_source_header_splitcmd	lua/modules/completion/lspconfig.lua	/^local function switch_source_header_splitcmd(bufnr, splitcmd)$/;"	f
 t	lua/keymap/config.lua	/^local t = function(str)$/;"	f
+vim.lsp.handlers["textDocument/codeAction"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/codeAction"] = function(_, _, actions)$/;"	f
+vim.lsp.handlers["textDocument/declaration"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/declaration"] = function($/;"	f
+vim.lsp.handlers["textDocument/definition"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/definition"] = function(_, method, result)$/;"	f
+vim.lsp.handlers["textDocument/documentSymbol"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/documentSymbol"] = function($/;"	f
+vim.lsp.handlers["textDocument/implementation"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/implementation"] = function($/;"	f
+vim.lsp.handlers["textDocument/references"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/references"] = function(_, _, result)$/;"	f
+vim.lsp.handlers["textDocument/symbol"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/symbol"] = function(_, _, result, _, bufn)$/;"	f
+vim.lsp.handlers["textDocument/typeDefinition"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/typeDefinition"] = function($/;"	f

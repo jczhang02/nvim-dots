@@ -8,6 +8,130 @@ function config.lightbulb()
     vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 end
 
+function config.nvim_lsputils()
+    if vim.fn.has("nvim-0.5.1") == 1 then
+        vim.lsp.handlers["textDocument/codeAction"] =
+            require "lsputil.codeAction".code_action_handler
+        vim.lsp.handlers["textDocument/references"] =
+            require "lsputil.locations".references_handler
+        vim.lsp.handlers["textDocument/definition"] =
+            require "lsputil.locations".definition_handler
+        vim.lsp.handlers["textDocument/declaration"] =
+            require "lsputil.locations".declaration_handler
+        vim.lsp.handlers["textDocument/typeDefinition"] =
+            require "lsputil.locations".typeDefinition_handler
+        vim.lsp.handlers["textDocument/implementation"] =
+            require "lsputil.locations".implementation_handler
+        vim.lsp.handlers["textDocument/documentSymbol"] =
+            require "lsputil.symbols".document_handler
+        vim.lsp.handlers["workspace/symbol"] =
+            require "lsputil.symbols".workspace_handler
+    else
+        local bufnr = vim.api.nvim_buf_get_number(0)
+
+        vim.lsp.handlers["textDocument/codeAction"] = function(_, _, actions)
+            require("lsputil.codeAction").code_action_handler(
+                nil,
+                actions,
+                nil,
+                nil,
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/references"] = function(_, _, result)
+            require("lsputil.locations").references_handler(
+                nil,
+                result,
+                {
+                    bufnr = bufnr
+                },
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/definition"] = function(_, method, result)
+            require("lsputil.locations").definition_handler(
+                nil,
+                result,
+                {
+                    bufnr = bufnr,
+                    method = method
+                },
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/declaration"] = function(
+            _,
+            method,
+            result)
+            require("lsputil.locations").declaration_handler(
+                nil,
+                result,
+                {
+                    bufnr = bufnr,
+                    method = method
+                },
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/typeDefinition"] = function(
+            _,
+            method,
+            result)
+            require("lsputil.locations").typeDefinition_handler(
+                nil,
+                result,
+                {
+                    bufnr = bufnr,
+                    method = method
+                },
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/implementation"] = function(
+            _,
+            method,
+            result)
+            require("lsputil.locations").implementation_handler(
+                nil,
+                result,
+                {
+                    bufnr = bufnr,
+                    method = method
+                },
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/documentSymbol"] = function(
+            _,
+            _,
+            result,
+            _,
+            bufn)
+            require("lsputil.symbols").document_handler(
+                nil,
+                result,
+                {bufnr = bufn},
+                nil
+            )
+        end
+
+        vim.lsp.handlers["textDocument/symbol"] = function(_, _, result, _, bufn)
+            require("lsputil.symbols").workspace_handler(
+                nil,
+                result,
+                {bufnr = bufn},
+                nil
+            )
+        end
+    end
+end
+
 function config.cmp()
     local press = function(key)
         vim.api.nvim_feedkeys(
@@ -31,10 +155,14 @@ function config.cmp()
     cmp.setup {
         sorting = {
             comparators = {
-                cmp.config.compare.offset, cmp.config.compare.exact,
-                cmp.config.compare.score, require("cmp-under-comparator").under,
-                cmp.config.compare.kind, cmp.config.compare.sort_text,
-                cmp.config.compare.length, cmp.config.compare.order
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
+                require("cmp-under-comparator").under,
+                cmp.config.compare.kind,
+                cmp.config.compare.sort_text,
+                cmp.config.compare.length,
+                cmp.config.compare.order
             }
         },
         formatting = {
@@ -75,7 +203,7 @@ function config.cmp()
                 )
 
                 vim_item.menu =
-                ({
+                    ({
                     cmp_tabnine = "[TN]",
                     orgmode = "[ORG]",
                     nvim_lsp = "[LSP]",
@@ -86,7 +214,7 @@ function config.cmp()
                     ultisnips = "[USP]",
                     spell = "[SPELL]",
                     -- copilot = "[CPT]",
-                    dictionary = "[DIC]",
+                    dictionary = "[DIC]"
                 })[entry.source.name]
 
                 return vim_item
@@ -94,43 +222,58 @@ function config.cmp()
         },
         -- You can set mappings if you want
         mapping = {
-			['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-			['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-			['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-			['<C-q>'] = cmp.mapping({
-				i = cmp.mapping.abort(),
-				c = cmp.mapping.close()
-			}),
-			['<CR>'] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true}),
-			["<Tab>"] = cmp.mapping({
-				i = function(fallback)
-					if cmp.get_selected_entry() == nil and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-						press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-					elseif cmp.visible() then
-						cmp.select_next_item()
-					elseif has_any_words_before() then
-						press("<Tab>")
-					else
-						fallback()
-					end
-				end,
-				s = function(fallback)
-					if cmp.get_selected_entry() == nil and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-						press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-					elseif has_any_words_before() then
-						press("<Tab>")
-					else
-						fallback()
-					end
-				end
-			}),
-			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if cmp.visible() then
-					cmp.select_prev_item()
-				else
-					fallback()
-				end
-			end, {'i', 's'}),
+            ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
+            ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
+            ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "c"}),
+            ["<C-q>"] = cmp.mapping(
+                {
+                    i = cmp.mapping.abort(),
+                    c = cmp.mapping.close()
+                }
+            ),
+            ["<CR>"] = cmp.mapping.confirm(
+                {behavior = cmp.ConfirmBehavior.Replace, select = true}
+            ),
+            ["<Tab>"] = cmp.mapping(
+                {
+                    i = function(fallback)
+                        if
+                            cmp.get_selected_entry() == nil and
+                                vim.fn["UltiSnips#CanExpandSnippet"]() == 1
+                         then
+                            press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
+                        elseif cmp.visible() then
+                            cmp.select_next_item()
+                        elseif has_any_words_before() then
+                            press("<Tab>")
+                        else
+                            fallback()
+                        end
+                    end,
+                    s = function(fallback)
+                        if
+                            cmp.get_selected_entry() == nil and
+                                vim.fn["UltiSnips#CanExpandSnippet"]() == 1
+                         then
+                            press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
+                        elseif has_any_words_before() then
+                            press("<Tab>")
+                        else
+                            fallback()
+                        end
+                    end
+                }
+            ),
+            ["<S-Tab>"] = cmp.mapping(
+                function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    else
+                        fallback()
+                    end
+                end,
+                {"i", "s"}
+            ),
             ["<C-h>"] = cmp.mapping(
                 function(fallback)
                     if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
@@ -151,8 +294,7 @@ function config.cmp()
                 end,
                 {"i", "s"}
             )
-		},
-
+        },
         -- mapping = {
         --     ["<CR>"] = cmp.mapping.confirm({select = true}),
         --     ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -234,7 +376,7 @@ function config.cmp()
             {name = "tmux"},
             {name = "orgmode"},
             -- {name = "copilot"},
-            {name = 'cmp_tabnine'},
+            {name = "cmp_tabnine"}
             -- {
             --     name = 'dictionary',
             --     max_item_count = 3,
@@ -245,22 +387,14 @@ function config.cmp()
 end
 
 function config.ultisnips()
-	vim.g.UltiSnipsRemoveSelectModeMappings = 0
-	vim.g.UltiSnipsEditSplit = 'vertical'
+    vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    vim.g.UltiSnipsEditSplit = "vertical"
     vim.g.UltiSnipsJumpForwardTrigger = "<C-l>"
     vim.g.UltiSnipsJumpBackwardTrigger = "<C-h>"
 end
 
--- function config.luasnip()
---     require("luasnip").config.set_config {
---         history = true,
---         updateevents = "TextChanged,TextChangedI"
---     }
---     require("luasnip/loaders/from_vscode").load()
--- end
-
 function config.tabnine()
-    local tabnine = require('cmp_tabnine.config')
+    local tabnine = require("cmp_tabnine.config")
     tabnine:setup({max_line = 1000, max_num_results = 20, sort = true})
 end
 

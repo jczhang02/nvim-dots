@@ -68,7 +68,9 @@ local plug_map = {
     ["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
     ["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
     --["n|gh"] = map_cr("Lspsaga lsp_finder"):with_noremap():with_silent(),
-    ["n|gh"] = map_cr("lua vim.lsp.buf.references()"):with_noremap():with_silent(),
+    ["n|gh"] = map_cr("lua vim.lsp.buf.references()"):with_noremap():with_silent(
+
+    ),
     ["n|<A-d>"] = map_cu('lua require("FTerm").toggle()'):with_noremap():with_silent(
 
     ),
@@ -205,8 +207,12 @@ local plug_map = {
     ["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(
 
     ),
-    ["i|<C-f>"] = map_cmd([[<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>]]):with_noremap(),
-    ["n|<C-f>"] = map_cmd([['!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]]):with_noremap():with_silent(),
+    ["i|<C-f>"] = map_cmd(
+        [[<Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>]]
+    ):with_noremap(),
+    ["n|<C-f>"] = map_cmd(
+        [['!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>]]
+    ):with_noremap():with_silent()
 }
 
 bind.nvim_load_mapping(plug_map)
