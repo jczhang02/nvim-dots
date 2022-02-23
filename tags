@@ -29,6 +29,8 @@ bind_option	lua/core/options.lua	/^local function bind_option(options)$/;"	f
 clipboard_settings	lua/core/init.lua	/^local clipboard_settings = function()$/;"	f
 config	lua/modules/editor/plugins.lua	/^    config = function()$/;"	f
 config	lua/modules/tools/plugins.lua	/^    config = function()$/;"	f
+config	lua/modules/ui/plugins.lua	/^    config = function()$/;"	f
+config.aerial	lua/modules/editor/config.lua	/^function config.aerial()$/;"	f
 config.auto_session	lua/modules/editor/config.lua	/^function config.auto_session()$/;"	f
 config.autopairs	lua/modules/completion/config.lua	/^function config.autopairs()$/;"	f
 config.autotag	lua/modules/editor/config.lua	/^function config.autotag()$/;"	f
@@ -45,6 +47,7 @@ config.indent_blankline	lua/modules/ui/config.lua	/^function config.indent_blank
 config.lang_org	lua/modules/lang/config.lua	/^function config.lang_org()$/;"	f
 config.lightbulb	lua/modules/completion/config.lua	/^function config.lightbulb()$/;"	f
 config.lualine	lua/modules/ui/config.lua	/^function config.lualine()$/;"	f
+config.magma	lua/modules/lang/config.lua	/^function config.magma()$/;"	f
 config.matchup	lua/modules/editor/config.lua	/^function config.matchup()$/;"	f
 config.neoscroll	lua/modules/editor/config.lua	/^function config.neoscroll()$/;"	f
 config.nvim_bufferline	lua/modules/ui/config.lua	/^function config.nvim_bufferline()$/;"	f
@@ -61,13 +64,14 @@ config.symbols_outline	lua/modules/editor/config.lua	/^function config.symbols_o
 config.tabnine	lua/modules/completion/config.lua	/^function config.tabnine()$/;"	f
 config.telescope	lua/modules/tools/config.lua	/^function config.telescope()$/;"	f
 config.toggleterm	lua/modules/editor/config.lua	/^function config.toggleterm()$/;"	f
+config.tokyonight	lua/modules/ui/config.lua	/^function config.tokyonight()$/;"	f
 config.trouble	lua/modules/tools/config.lua	/^function config.trouble()$/;"	f
 config.ultisnips	lua/modules/completion/config.lua	/^function config.ultisnips()$/;"	f
 config.vim_cursorwod	lua/modules/editor/config.lua	/^function config.vim_cursorwod()$/;"	f
 config.vimtex	lua/modules/lang/config.lua	/^function config.vimtex()$/;"	f
 config.wilder	lua/modules/tools/config.lua	/^function config.wilder()$/;"	f
 createdir	lua/core/init.lua	/^local createdir = function()$/;"	f
-custom_attach	lua/modules/completion/lspconfig.lua	/^local function custom_attach()$/;"	f
+custom_attach	lua/modules/completion/lspconfig.lua	/^local function custom_attach(client)$/;"	f
 dap.adapters.go	lua/modules/editor/config.lua	/^    dap.adapters.go = function(callback, config)$/;"	f
 dap.listeners.after.event_initialized["dapui_config"]	lua/modules/editor/config.lua	/^    dap.listeners.after.event_initialized["dapui_config"] = function()$/;"	f
 dap.listeners.before.event_exited["dapui_config"]	lua/modules/editor/config.lua	/^    dap.listeners.before.event_exited["dapui_config"] = function()$/;"	f
@@ -85,6 +89,7 @@ i	lua/modules/completion/config.lua	/^                    i = function(fallback)
 leader_map	lua/core/init.lua	/^local leader_map = function()$/;"	f
 load_core	lua/core/init.lua	/^local load_core = function()$/;"	f
 load_options	lua/core/options.lua	/^local function load_options()$/;"	f
+minimap_config	lua/core/init.lua	/^local function minimap_config()$/;"	f
 neovide_config	lua/core/init.lua	/^local neovide_config = function()$/;"	f
 open_fn	lua/core/pack.lua	/^                open_fn = function()$/;"	f
 pbind.map_args	lua/keymap/bind.lua	/^function pbind.map_args(cmd_string)$/;"	f
@@ -108,7 +113,6 @@ rhs_options:with_expr	lua/keymap/bind.lua	/^function rhs_options:with_expr()$/;"
 rhs_options:with_noremap	lua/keymap/bind.lua	/^function rhs_options:with_noremap()$/;"	f
 rhs_options:with_nowait	lua/keymap/bind.lua	/^function rhs_options:with_nowait()$/;"	f
 rhs_options:with_silent	lua/keymap/bind.lua	/^function rhs_options:with_silent()$/;"	f
-run	lua/modules/tools/plugins.lua	/^    run = function()$/;"	f
 s	lua/modules/completion/config.lua	/^                    s = function(fallback)$/;"	f
 size	lua/modules/editor/config.lua	/^        size = function(term)$/;"	f
 switch_source_header_splitcmd	lua/modules/completion/lspconfig.lua	/^local function switch_source_header_splitcmd(bufnr, splitcmd)$/;"	f
@@ -117,6 +121,7 @@ vim.lsp.handlers["textDocument/codeAction"]	lua/modules/completion/config.lua	/^
 vim.lsp.handlers["textDocument/declaration"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/declaration"] = function($/;"	f
 vim.lsp.handlers["textDocument/definition"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/definition"] = function(_, method, result)$/;"	f
 vim.lsp.handlers["textDocument/documentSymbol"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/documentSymbol"] = function($/;"	f
+vim.lsp.handlers["textDocument/formatting"]	lua/modules/completion/lspconfig.lua	/^vim.lsp.handlers["textDocument\/formatting"] = function(err, result, ctx)$/;"	f
 vim.lsp.handlers["textDocument/implementation"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/implementation"] = function($/;"	f
 vim.lsp.handlers["textDocument/references"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/references"] = function(_, _, result)$/;"	f
 vim.lsp.handlers["textDocument/symbol"]	lua/modules/completion/config.lua	/^        vim.lsp.handlers["textDocument\/symbol"] = function(_, _, result, _, bufn)$/;"	f

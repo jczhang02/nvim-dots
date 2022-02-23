@@ -213,7 +213,7 @@ function config.cmp()
                     tmux = "[TMUX]",
                     ultisnips = "[USP]",
                     spell = "[SPELL]",
-                    -- copilot = "[CPT]",
+                    copilot = "[CPT]",
                     dictionary = "[DIC]"
                 })[entry.source.name]
 
@@ -295,71 +295,6 @@ function config.cmp()
                 {"i", "s"}
             )
         },
-        -- mapping = {
-        --     ["<CR>"] = cmp.mapping.confirm({select = true}),
-        --     ["<C-p>"] = cmp.mapping.select_prev_item(),
-        --     ["<C-n>"] = cmp.mapping.select_next_item(),
-        --     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        --     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        --     ["<C-e>"] = cmp.mapping.close(),
-        --     ["<C-Space>"] = cmp.mapping(
-        --         function(fallback)
-        --             if cmp.visible() then
-        --                 if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-        --                     return press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-        --                 end
-        --                 cmp.select_next_item()
-        --             elseif has_any_words_before() then
-        --                 press("<Space>")
-        --             else
-        --                 fallback()
-        --             end
-        --         end,
-        --         {"i", "s"}
-        --     ),
-        --     ["<Tab>"] = cmp.mapping(
-        --         function(fallback)
-        --             if cmp.visible() then
-        --                 cmp.select_next_item()
-        --             elseif has_any_words_before() then
-        --                 press("<Tab>")
-        --             else
-        --                 fallback()
-        --             end
-        --         end,
-        --         {"i", "s"}
-        --     ),
-        --     ["<S-Tab>"] = cmp.mapping(
-        --         function(fallback)
-        --             if cmp.visible() then
-        --                 cmp.select_prev_item()
-        --             else
-        --                 fallback()
-        --             end
-        --         end,
-        --         {"i", "s"}
-        --     ),
-        --     ["<C-h>"] = cmp.mapping(
-        --         function(fallback)
-        --             if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-        --                 press("<ESC>:call UltiSnips#JumpBackwards()<CR>")
-        --             else
-        --                 fallback()
-        --             end
-        --         end,
-        --         {"i", "s"}
-        --     ),
-        --     ["<C-l>"] = cmp.mapping(
-        --         function(fallback)
-        --             if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-        --                 press("<ESC>:call UltiSnips#JumpForwards()<CR>")
-        --             else
-        --                 fallback()
-        --             end
-        --         end,
-        --         {"i", "s"}
-        --     )
-        -- },
         snippet = {
             expand = function(args)
                 vim.fn["UltiSnips#Anon"](args.body)
@@ -376,7 +311,8 @@ function config.cmp()
             {name = "tmux"},
             {name = "orgmode"},
             -- {name = "copilot"},
-            {name = "cmp_tabnine"}
+            {name = "cmp_tabnine"},
+            {name = "copilot"}
             -- {
             --     name = 'dictionary',
             --     max_item_count = 3,

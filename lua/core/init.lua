@@ -120,6 +120,12 @@ local dashboard_config = function()
     }
 end
 
+local function minimap_config()
+    vim.g.minimap_auto_start = 0
+    vim.g.minimap_block_filetypes = {"aerial", "NvimTree"}
+    vim.g.minimap_git_colors = 1
+end
+
 local clipboard_settings = function()
     vim.cmd [[
     let g:clipboard = {
@@ -147,6 +153,7 @@ local load_core = function()
     pack.ensure_plugins()
     neovide_config()
     dashboard_config()
+    minimap_config()
     -- clipboard_settings()
 
     require("core.options")
@@ -155,7 +162,7 @@ local load_core = function()
     require("core.event")
     pack.load_compile()
 
-    vim.cmd [[colorscheme catppuccin]]
+    vim.cmd [[colorscheme tokyonight]]
 end
 
 load_core()

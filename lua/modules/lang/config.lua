@@ -95,5 +95,17 @@ function config.vimtex()
     vim.cmd [[let g:vimtex_view_method = 'zathura']]
 end
 
+function config.magma()
+    vim.cmd [[nnoremap <silent><expr> <Leader>r  :MagmaEvaluateOperator<CR>]]
+    vim.cmd [[nnoremap <silent>       <Leader>rr :MagmaEvaluateLine<CR>]]
+    vim.cmd [[xnoremap <silent>       <Leader>r  :<C-u>MagmaEvaluateVisual<CR>]]
+    vim.cmd [[nnoremap <silent>       <Leader>rc :MagmaReevaluateCell<CR>]]
+    vim.cmd [[nnoremap <silent>       <Leader>rd :MagmaDelete<CR>]]
+    vim.cmd [[nnoremap <silent>       <Leader>ro :MagmaShowOutput<CR>]]
+
+    vim.cmd [[let g:magma_automatically_open_output = 'false']]
+    vim.cmd [[let g:magma_show_mimetype_debug = 'true']]
+end
+
 
 return config

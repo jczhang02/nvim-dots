@@ -40,6 +40,10 @@ completion["hrsh7th/nvim-cmp"] = {
             run = "./install.sh",
             after = "cmp-spell",
             config = conf.tabnine
+        },
+        {
+            "hrsh7th/cmp-copilot",
+            after = "cmp-tabnine"
         }
         -- {
         --     "uga-rosa/cmp-dictionary",
@@ -62,6 +66,9 @@ completion["windwp/nvim-autopairs"] = {
     after = "nvim-cmp",
     config = conf.autopairs
 }
-completion["github/copilot.vim"] = {opt = true, cmd = "Copilot"}
+completion["github/copilot.vim"] = {
+    opt = false,
+    cmd = "Copilot"
+}
 
 return completion

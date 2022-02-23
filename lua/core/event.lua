@@ -97,7 +97,13 @@ function autocmd.load_autocmds()
                 "FileType",
                 "bib",
                 "setlocal tabstop=2 shiftwidth=2"
-            }
+            },
+            {
+                "FileType",
+                "dap-repl",
+                "lua require('dap.ext.autocompl').attach()"
+            },
+            {"FileType", "markdown", "set wrap"}
         },
         yank = {
             {

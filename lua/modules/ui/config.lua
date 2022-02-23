@@ -9,54 +9,70 @@ function config.edge()
     vim.g.edge_better_performance = 1
 end
 
+function config.tokyonight()
+    -- Example config in Lua
+    vim.g.tokyonight_style = "storm"
+    -- vim.g.tokyonight_italic_functions = true
+    -- vim.g.tokyonight_sidebars = {"qf", "vista_kind", "terminal", "packer"}
+
+    -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+    vim.g.tokyonight_colors = {hint = "orange", error = "#ff0000"}
+    vim.cmd [[colorscheme tokyonight]]
+end
+
 function config.catppuccin()
-    require('catppuccin').setup({
-        transparent_background = false,
-        term_colors = true,
-        styles = {
-            comments = "italic",
-            functions = "italic",
-            keywords = "italic",
-            strings = "NONE",
-            variables = "NONE"
-        },
-        integrations = {
-            treesitter = true,
-            native_lsp = {
-                enabled = true,
-                virtual_text = {
-                    errors = "italic",
-                    hints = "italic",
-                    warnings = "italic",
-                    information = "italic"
-                },
-                underlines = {
-                    errors = "underline",
-                    hints = "underline",
-                    warnings = "underline",
-                    information = "underline"
-                }
+    require("catppuccin").setup(
+        {
+            transparent_background = false,
+            term_colors = true,
+            styles = {
+                comments = "italic",
+                functions = "italic",
+                keywords = "italic",
+                strings = "NONE",
+                variables = "NONE"
             },
-            lsp_trouble = true,
-            lsp_saga = true,
-            gitgutter = false,
-            gitsigns = true,
-            telescope = true,
-            nvimtree = {enabled = true, show_root = true},
-            which_key = true,
-            indent_blankline = {enabled = true, colored_indent_levels = false},
-            dashboard = true,
-            neogit = false,
-            vim_sneak = false,
-            fern = false,
-            barbar = false,
-            bufferline = true,
-            markdown = true,
-            lightspeed = false,
-            ts_rainbow = true,
-            hop = true
+            integrations = {
+                treesitter = true,
+                native_lsp = {
+                    enabled = true,
+                    virtual_text = {
+                        errors = "italic",
+                        hints = "italic",
+                        warnings = "italic",
+                        information = "italic"
+                    },
+                    underlines = {
+                        errors = "underline",
+                        hints = "underline",
+                        warnings = "underline",
+                        information = "underline"
+                    }
+                },
+                lsp_trouble = true,
+                lsp_saga = true,
+                gitgutter = false,
+                gitsigns = true,
+                telescope = true,
+                nvimtree = {enabled = true, show_root = true},
+                which_key = true,
+                indent_blankline = {
+                    enabled = true,
+                    colored_indent_levels = false
+                },
+                dashboard = true,
+                neogit = false,
+                vim_sneak = false,
+                fern = false,
+                barbar = false,
+                bufferline = true,
+                markdown = true,
+                lightspeed = false,
+                ts_rainbow = true,
+                hop = true
+            }
         }
-    })
+    )
 end
 
 function config.lualine()
@@ -69,48 +85,168 @@ function config.lualine()
             return ""
         end
     end
-
-    require("lualine").setup {
-        options = {
-            icons_enabled = true,
-            theme = "catppuccin",
-            disabled_filetypes = {},
-            component_separators = "|",
-            section_separators = {left = "", right = ""}
-        },
-        sections = {
-            lualine_a = {"mode"},
-            lualine_b = {{"branch"}, {"diff"}},
-            lualine_c = {
-                {"lsp_progress"},
-                {gps_content, cond = gps.is_available}
-            },
-            lualine_x = {
-                {
-                    "diagnostics",
-                    sources = {'nvim_diagnostic'},
-                    color_error = "#BF616A",
-                    color_warn = "#EBCB8B",
-                    color_info = "#81A1AC",
-                    color_hint = "#88C0D0",
-                    symbols = {error = " ", warn = " ", info = " "}
-                }
-            },
-            lualine_y = {"filetype", "encoding", "fileformat"},
-            lualine_z = {"progress", "location"}
-        },
-        inactive_sections = {
-            lualine_a = {},
-            lualine_b = {},
-            lualine_c = {"filename"},
-            lualine_x = {"location"},
-            lualine_y = {},
-            lualine_z = {}
-        },
-        tabline = {},
-        extensions = {}
+    local mini_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {"location"}
     }
+    local simple_sections = {
+        lualine_a = {"mode"},
+        lualine_b = {"filetype"},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {"location"}
+    }
+    local minimap = {
+        sections = mini_sections,
+        filetypes = {"minimap"}
+    }
+    local aerial = {
+        sections = mini_sections,
+        filetypes = {"aerial"}
+    }
+    local dapui_scopes = {
+        sections = simple_sections,
+        filetypes = {"dapui_scopes"}
+    }
+
+    local dapui_breakpoints = {
+        sections = simple_sections,
+        filetypes = {"dapui_breakpoints"}
+    }
+
+    local dapui_stacks = {
+        sections = simple_sections,
+        filetypes = {"dapui_stacks"}
+    }
+
+    local dapui_watches = {
+        sections = simple_sections,
+        filetypes = {"dapui_watches"}
+    }
+
+    require("lualine").setup(
+        {
+            options = {
+                icons_enabled = true,
+                theme = "catppuccin",
+                disabled_filetypes = {},
+                component_separators = "|",
+                section_separators = {left = "", right = ""}
+            },
+            sections = {
+                lualine_a = {"mode"},
+                lualine_b = {{"branch"}, {"diff"}},
+                lualine_c = {
+                    {"lsp_progress"},
+                    {gps_content, cond = gps.is_available}
+                },
+                lualine_x = {
+                    {
+                        "diagnostics",
+                        sources = {"nvim_diagnostic"},
+                        symbols = {error = " ", warn = " ", info = " "}
+                    }
+                },
+                lualine_y = {
+                    {
+                        "filetype",
+                        "encoding"
+                    },
+                    {
+                        "fileformat",
+                        icons_enabled = true,
+                        symbols = {
+                            unix = "LF",
+                            dos = "CRLF",
+                            mac = "CR"
+                        }
+                    }
+                },
+                lualine_z = {"progress", "location"}
+            },
+            inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = {"filename"},
+                lualine_x = {"location"},
+                lualine_y = {},
+                lualine_z = {}
+            },
+            tabline = {},
+            extensions = {
+                "quickfix",
+                "nvim-tree",
+                "toggleterm",
+                "fugitive",
+                minimap,
+                aerial,
+                dapui_scopes,
+                dapui_breakpoints,
+                dapui_stacks,
+                dapui_watches
+            }
+        }
+    )
 end
+
+--
+-- function config.lualine()
+--     local gps = require("nvim-gps")
+--
+--     local function gps_content()
+--         if gps.is_available() then
+--             return gps.get_location()
+--         else
+--             return ""
+--         end
+--     end
+--
+--     require("lualine").setup {
+--         options = {
+--             icons_enabled = true,
+--             theme = "tokyonight",
+--             disabled_filetypes = {},
+--             component_separators = "|",
+--             section_separators = {left = "", right = ""}
+--         },
+--         sections = {
+--             lualine_a = {"mode"},
+--             lualine_b = {{"branch"}, {"diff"}},
+--             lualine_c = {
+--                 {"lsp_progress"},
+--                 {gps_content, cond = gps.is_available}
+--             },
+--             lualine_x = {
+--                 {
+--                     "diagnostics",
+--                     sources = {"nvim_diagnostic"},
+--                     color_error = "#BF616A",
+--                     color_warn = "#EBCB8B",
+--                     color_info = "#81A1AC",
+--                     color_hint = "#88C0D0",
+--                     symbols = {error = " ", warn = " ", info = " "}
+--                 }
+--             },
+--             lualine_y = {"filetype", "encoding", "fileformat"},
+--             lualine_z = {"progress", "location"}
+--         },
+--         inactive_sections = {
+--             lualine_a = {},
+--             lualine_b = {},
+--             lualine_c = {"filename"},
+--             lualine_x = {"location"},
+--             lualine_y = {},
+--             lualine_z = {}
+--         },
+--         tabline = {},
+--         extensions = {}
+--     }
+-- end
 
 function config.nvim_tree()
     local tree_cb = require "nvim-tree.config".nvim_tree_callback

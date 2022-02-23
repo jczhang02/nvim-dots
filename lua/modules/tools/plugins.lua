@@ -58,11 +58,18 @@ tools["gelguy/wilder.nvim"] = {
 }
 tools["nathom/filetype.nvim"] = {opt = false}
 
-tools["glacambre/firenvim"] = {
-    opt = false,
-    run = function()
-        vim.fn["firenvim#install"](0)
-    end
+-- tools["lilydjwg/fcitx.vim"] = {
+--     opt = false,
+--     config = function()
+--         vim.cmd [[let g:fcitx_remote="/usr/bin/fcitx5-remote"]]
+--     end
+-- }
+--
+tools["h-hg/fcitx.nvim"] = {
+    opt = false
+}
+tools["christoomey/vim-tmux-navigator"] = {
+    opt = false
 }
 
 return tools

@@ -21,10 +21,22 @@ lang["iamcco/markdown-preview.nvim"] = {
     ft = "markdown",
     run = "cd app && yarn install"
 }
-lang ['lervag/vimtex'] = {
+lang["lervag/vimtex"] = {
     opt = false,
-    config = conf.vimtex,
+    config = conf.vimtex
 }
 
+lang["chrisbra/csv.vim"] = {opt = true, ft = "csv"}
+
+lang["dccsillag/magma-nvim"] = {
+    -- ft = "python",
+    run = ":UpdateRemotePlugins",
+    config = conf.magma
+    -- cmd = {
+    --     "MagmaInit", "MagmaDeinit",
+    --     "MagmaEvaluateLine", "MagmaEvaluateOperator",
+    --     "MagmaReevaluateCell", "MagmaShowOutput", "MagmaRestart"
+    -- }
+}
 
 return lang

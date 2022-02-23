@@ -147,8 +147,11 @@ local plug_map = {
     ["n|<leader><leader>z"] = map_cr("ZenMode"):with_noremap():with_silent(),
     -- Plugin Twilight
     ["n|<leader><leader>t"] = map_cr("Twilight"):with_noremap():with_silent(),
-    -- Plugin SymbolOutline
-    ["n|<A-t>"] = map_cr("SymbolsOutline"):with_noremap():with_silent(),
+    -- Plugin Aerial
+    ["n|<A-t>"] = map_cr("AerialToggle"):with_noremap():with_silent(),
+    -- Plugin minimap
+    ["n|<A-n>"] = map_cr("MinimapToggle"):with_noremap():with_silent(),
+    ["n|<A-r>"] = map_cr("MinimapRefresh"):with_noremap():with_silent(),
     -- Plugin split-term
     ["n|<F5>"] = map_cr("Term"):with_noremap():with_silent(),
     ["n|<C-w>t"] = map_cr("Term"):with_noremap():with_silent(),

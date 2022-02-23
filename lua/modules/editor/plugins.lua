@@ -21,11 +21,18 @@ editor["terrortylor/nvim-comment"] = {
         )
     end
 }
-editor["simrat39/symbols-outline.nvim"] = {
+
+editor["stevearc/aerial.nvim"] = {
     opt = true,
-    cmd = {"SymbolsOutline", "SymbolsOulineOpen"},
-    config = conf.symbols_outline
+    after = "nvim-lspconfig",
+    config = conf.aerial
 }
+-- editor["simrat39/symbols-outline.nvim"] = {
+--     opt = true,
+--     -- event = "BufRead",
+--     cmd = {"SymbolsOutline", "SymbolsOulineOpen"},
+--     config = conf.symbols_outline
+-- }
 editor["nvim-treesitter/nvim-treesitter"] = {
     opt = true,
     run = ":TSUpdate",
@@ -127,7 +134,7 @@ editor["rcarriga/nvim-dap-ui"] = {
     }
 }
 
-editor['ludovicchabant/vim-gutentags'] = {
+editor["ludovicchabant/vim-gutentags"] = {
     opt = false,
     config = conf.gentags
 }

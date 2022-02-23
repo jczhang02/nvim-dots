@@ -15,7 +15,8 @@ ui["arkav/lualine-lsp-progress"] = {
 ui["glepnir/dashboard-nvim"] = {opt = true, event = "BufWinEnter"}
 ui["kyazdani42/nvim-tree.lua"] = {
     opt = true,
-    cmd = {"NvimTreeToggle", "NvimTreeOpen"},
+    -- cmd = {"NvimTreeToggle", "NvimTreeOpen"},
+    event = "BufRead",
     config = conf.nvim_tree
 }
 ui["lewis6991/gitsigns.nvim"] = {
@@ -35,10 +36,28 @@ ui["akinsho/nvim-bufferline.lua"] = {
     config = conf.nvim_bufferline
 }
 
+ui["folke/tokyonight.nvim"] = {
+    opt = false,
+    config = conf.tokyonight
+}
+
 ui["catppuccin/nvim"] = {
     opt = false,
     as = "catppuccin",
     config = conf.catppuccin
+}
+
+ui["petertriho/nvim-scrollbar"] = {
+    opt = true,
+    event = "BufRead",
+    config = function()
+        require("scrollbar").setup()
+    end
+}
+
+ui["wfxr/minimap.vim"] = {
+    opt = true,
+    event = "BufRead"
 }
 
 return ui
